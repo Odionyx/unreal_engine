@@ -7,7 +7,7 @@
 #include "CppBaseActor.generated.h"
 
 UCLASS()
-class TESTPROJECT_API ACppBaseActor : public AActor
+class LEARN_PROJECT_API ACppBaseActor : public AActor
 {
 	GENERATED_BODY()
 	
@@ -15,15 +15,28 @@ public:
 	// Sets default values for this actor's properties
 	ACppBaseActor();
 
+private:
+	/* Method UE_LOG */
+	void ShowActorInformation();
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+	UPROPERTY(VisibleAnywhere)
+	FString PlayerName = "TestActor";
+
+	UPROPERTY(EditAnywhere)
+	int EnemyNum = rand()/512;
+
+	UPROPERTY(EditDefaultsOnly)
+	float CurrentHealth = 100.0;
+
+	UPROPERTY(EditInstanceOnly)
+	bool IsAlive = true;
 
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-private:
-	// Method UE_LOG
-	void ShowActorInformation();
 };
