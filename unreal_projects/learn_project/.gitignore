@@ -4,4 +4,4 @@ Binaries/
 DerivedDataCache/
 Intermediate/
 Saved/
-Content/StarterContent/
+**/StarterContent
